@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USB Gamecontroller</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: system-ui, sans-serif;
+      background: #10131a;
+      color: #f4f7ff;
+    }
+    body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 { margin-bottom: 6px; }
+    #status {
+      padding: 12px;
+      border-radius: 8px;
+      background: #2b3445;
+      margin: 16px 0;
+    }
+    #status.connected { background: #174f32; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .panel {
+      border: 1px solid #3a4560;
+      border-radius: 10px;
+      padding: 16px;
+      background: #171b24;
+    }
+    .axis { height: 20px; background: #30394b; border-radius: 10px; margin: 8px 0; overflow: hidden; }
+    .axis-fill { height: 100%; width: 50%; background: #4da3ff; transition: width 60ms linear; }
+    .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .button {
+      padding: 10px 4px;
+      text-align: center;
+      border-radius: 7px;
+      background: #30394b;
+    }
+    .button.pressed { background: #22b573; color: #08140d; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>USB Gamecontroller</h1>
+  <p>Open deze pagina in Chrome of Edge en sluit je controller aan.</p>
+  <div id="status">Zoeken naar een controller...</div>
+
+  <main class="grid">
+    <section class="panel">
+      <h2>Controller</h2>
+      <div id="controllerName">Geen controller gevonden</div>
+    </section>
+    <section class="panel">
+      <h2>Knoppen</h2>
+      <div id="buttons" class="buttons"></div>
+    </section>
+    <section class="panel">
+      <h2>Sticks</h2>
+      <div id="axes"></div>
+    </section>
+  </main>
+
+  <script src="controller.js"></script>
+</body>
+</html>
